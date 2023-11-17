@@ -30,6 +30,15 @@ describe('trie', () => {
       expect(trie.contains('tax')).toBe(true);
       expect(trie.contains('tailor')).toBe(true);
     })
+
+    it('phrases with spaces in it', () => {
+      const trie = new Trie<number>();
+      trie.insert('apple pie', 1);
+      trie.insert('apple', 2);
+
+      expect(trie.contains('apple pie')).toBe(true);
+      expect(trie.contains('apple')).toBe(true);
+    })
   })
 
   describe('get', () => {
