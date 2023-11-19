@@ -1,4 +1,4 @@
-import { Trie } from "../src/Trie";
+import { Trie } from "../src/trie";
 
 describe('trie', () => {
   describe('contains', () => {
@@ -76,19 +76,19 @@ describe('trie', () => {
       expect(trie.possibilities('tai')).toEqual([]);
     })
 
-    it('returns all possibilities given a prefix when only a single word was added', () => {
+    it('returns all possibilities given a prefix when only a single word was added and the value is correct', () => {
       const trie = new Trie<number>();
       trie.insert('apple', 1);
 
-      expect(trie.possibilities('ap')).toEqual(['apple']);
+      expect(trie.possibilities('ap')).toEqual([{ key: 'apple', value: 1 }]);
     })
 
-    it('returns all possibilities given a prefix when multiple words with same prefix were added', () => {
+    it('returns all possibilities given a prefix when multiple words with same prefix were added and their values are correct', () => {
       const trie = new Trie<number>();
       trie.insert('tax', 1);
       trie.insert('tailor', 2);
 
-      expect(trie.possibilities('ta')).toEqual(['tax', 'tailor']);
+      expect(trie.possibilities('ta')).toEqual([{ key: 'tax', value: 1 }, { key: 'tailor', value: 2 }]);
     })
 
   })

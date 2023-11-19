@@ -75,7 +75,9 @@ export class Trie<T> {
     return currentNodeAfterPrefix.value;
   }
 
-  possibilities(prefix: string): string[] {
+
+
+  possibilities(prefix: string): { value: T | undefined, key: string }[] {
     const currentNodeAfterPrefix = this.navigateToEndOfPrefix(prefix);
     if (!currentNodeAfterPrefix) {
       return []
@@ -92,7 +94,7 @@ export class Trie<T> {
         currentNode = currentNode.children[nextChar];
         stack.push(currentNode.key);
       }
-      possibilities.push(prefix + stack.join(''))
+      possibilities.push({ key: prefix + stack.join(''), value: currentNode.value })
     }
 
     return possibilities
