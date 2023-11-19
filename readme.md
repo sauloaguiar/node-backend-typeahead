@@ -1,5 +1,5 @@
 
-# Typeaahead implementation example
+# Typeahead implementation example
 
 This project demonstrates an implementation of a [trie](https://en.wikipedia.org/wiki/Trie) data structure.
 
